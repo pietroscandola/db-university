@@ -11,3 +11,15 @@ FROM `courses`
 WHERE `cfu` > 10
 
 3. Selezionare tutti gli studenti che hanno più di 30 anni
+
+SELECT `name`,`surname`,`date_of_birth`
+FROM `students`
+WHERE YEAR(`date_of_birth`) <= 1991
+ORDER BY `date_of_birth` DESC
+
+4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea 
+
+SELECT *
+FROM `courses`
+WHERE `period` = 'I Semestre' AND `year` = '1'
+
