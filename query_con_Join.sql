@@ -62,3 +62,11 @@ JOIN `teachers`
 ON `teachers`.`id` = `course_teacher`.`teacher_id`
 
 /* BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per superare ciascuno dei suoi esami */
+
+SELECT `students`.`surname`,`students`.`name`, COUNT(`exam_student`.`vote`)
+FROM `students`
+JOIN `exam_student`
+ON `exam_student`.`student_id` =`students`.`id`
+WHERE `exam_student`.`vote` < 18
+GROUP BY `students`.`id`
+ORDER BY `students`.`surname`
